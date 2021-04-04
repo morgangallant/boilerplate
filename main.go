@@ -27,7 +27,7 @@ func main() {
 }
 
 func run(logger Logger, cfg *Config) error {
-	_, err := LoadDBPool(cfg)
+	_, err := LoadDBPool(cfg, logger)
 	if err != nil {
 		return errors.Wrap(err, "failed to load database connection pool")
 	}

@@ -10,7 +10,7 @@ until you can hire some smart people to build the system "right".
 
 - [X] Setup Go Project
 - [X] Configuration Stuffz
-- [ ] SQLite Setup
+- [X] SQLite Setup
 - [ ] Server Handler
 - [ ] Logging
 - [ ] Templating Frontend Service (template/html)

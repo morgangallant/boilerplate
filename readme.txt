@@ -10,9 +10,9 @@ until you can hire some smart people to build the system "right".
 
 - [X] Setup Go Project
 - [X] Configuration Stuffz
+- [X] Logging
 - [X] SQLite Setup
 - [ ] Server Handler
-- [ ] Logging
 - [ ] Templating Frontend Service (template/html)
 - [ ] Service Layer (Optional Pieces)
     - [ ] Authentication Service (may not be a good idea?)

@@ -1,0 +1,41 @@
+syntax = "proto3";
+option go_package = "internal/pb";
+
+// Empty message.
+message Empty {}
+
+// The Cluster service is used to elect leaders from the set of machines.
+service Cluster {
+  // When a new machine joins the cluster, we want to have this machine
+  // introduce itself to the rest of the peers in the network.
+  rpc Hello(HelloRequest) returns (Empty) {}
+
+  // Requesting a vote, a machine asking another machine to vote for it.
+  rpc RequestVote(VoteRequest) returns (VoteResponse) {}
+
+  // Heartbeat from leader to followers.
+  rpc LeaderHeartbeat(HeartbeatRequest) returns (HeartbeatResponse) {}
+}
+
+message HelloRequest {
+  string ts_host = 1; // Tailscale IP of this machine.
+  string hostname = 2;
+  string os = 3;
+}
+
+message VoteRequest {
+  int64 term = 1;
+  string candidate = 2;
+}
+
+message VoteResponse {
+  int64 term = 1;
+  bool granted = 2;
+}
+
+message HeartbeatRequest {
+  int64 term = 1;
+  string leader = 2;
+}
+
+message HeartbeatResponse { int64 term = 1; }

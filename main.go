@@ -1,9 +1,5 @@
 package main
 
-import (
-	"github.com/pkg/errors"
-)
-
 func configureLogger(cfg *Config) Logger {
 	pieces := []Logger{NewBaseLogger()}
 	if cfg.SentryDSN != "" {
@@ -27,10 +23,9 @@ func main() {
 }
 
 func run(logger Logger, cfg *Config) error {
-	_, err := LoadDBPool(cfg, logger)
-	if err != nil {
-		return errors.Wrap(err, "failed to load database connection pool")
-	}
-	logger.Logf("Hello World!")
-	return nil
+	// _, err := LoadDBPool(cfg, logger)
+	// if err != nil {
+	// 	return errors.Wrap(err, "failed to load database connection pool")
+	// }
+	return startCluster(logger)
 }

@@ -15,7 +15,7 @@ import (
 type Config struct {
 	SentryDSN      string
 	DiscordWebhook string
-	DBPath         string
+	// DBPath         string
 }
 
 func must(key string) string {
@@ -41,7 +41,7 @@ func getConfig() *Config {
 	return &Config{
 		SentryDSN:      optional("SENTRY_DSN"),
 		DiscordWebhook: optional("DISCORD_WEBHOOK"),
-		DBPath:         must("DB_PATH"),
+		// DBPath:         must("DB_PATH"),
 	}
 }
 
